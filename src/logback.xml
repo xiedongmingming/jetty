@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration scan="true" scanPeriod="30 minutes">
+	
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d [%t] %-5p %c - %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+    <appender name="CYCLIC_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d [%t] %-5p %c - %m%n</pattern>
+        </encoder>
+        <file>logs/rts.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/rts.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+    <appender name="ERROR_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d [%t] %-5p %c - %m%n</pattern>
+        </encoder>
+        <file>logs/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/error.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+    <root level="INFO">
+    	<appender-ref ref="STDOUT"/>
+        <appender-ref ref="CYCLIC_APPENDER"/>
+        <appender-ref ref="ERROR_APPENDER"/>
+    </root>
+    <logger name="httpclient.wire" level="INFO"/>
+    <logger name="org.mortbay.log" level="WARN"/>
+    <logger name="org.springframework" level="ERROR"/>
+    <logger name="org.reflections" level="ERROR"/>
+    <logger name="org.apache.axis" level="FATAL"/>
+    <logger name="com.mchange.v2" level="ERROR"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="com.yosemitecloud._3rdparty.yc_javaswift.joss.client" level="ERROR"/>
+</configuration>

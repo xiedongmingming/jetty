@@ -1,0 +1,3 @@
+SERVLET其主要功能在于交互式地浏览和修改数据,生成动态WEB内容.狭义的SERVLET是指JAVA语言实现的一个接口,广义的SERVLET是指任何实现了这个SERVLET接口的类,
+一般情况下,人们将SERVLET理解为后者.SERVLET运行于支持JAVA的应用服务器中.从原理上讲,SERVLET可以响应任何类型的请求,但绝大多数情况下SERVLET只用来扩展基
+于HTTP协议的WEB服务器.

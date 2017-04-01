@@ -1,0 +1,35 @@
+# Temp and output files
+LOGFILENAME
+*.bak
+*~
+*.pyc
+*.hprof
+*.swp
+*.swo
+.pydevproject
+target/
+bin/
+
+# IDE related files
+*.iml
+*.ipr
+*.iws
+.idea/
+.classpath
+.project
+.settings/
+nbproject/
+nbactions.xml
+
+# Mac OS related files
+.DS_Store
+.fseventsd
+.settings/
+
+
+#logs
+log/
+logs/
+**/dependency-reduced-pom.xml
+**/pom.xml.versionsBackup
+test-output/
